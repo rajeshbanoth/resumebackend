@@ -161,6 +161,10 @@ app.post('/',async(req,res)=>{
 })
 
 
+app.get("/",(req,res)=>{
+  res.send("server is running succesfully");
+})
+
 
 app.listen(7000,()=>{
     console.log("listening on 7000")
