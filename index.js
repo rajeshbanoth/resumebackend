@@ -13,9 +13,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+
 const baseurl="https://plastic-wasp-53.loca.lt/r/"
 
-const BASE_URL = 'https://plastic-wasp-53.loca.lt/r/';
+const BASE_URL = 'http://localhost:8000/r/';
 
 
 
@@ -151,6 +152,8 @@ app.post('/',async(req,res)=>{
       }
   
       await browser.close();
+
+      console.log(Buffer.from(pdf).toString('base64'))
      res.send(Buffer.from(pdf).toString('base64'));
     } catch (error) {
       console.log(error)
@@ -160,10 +163,6 @@ app.post('/',async(req,res)=>{
 
 })
 
-
-app.get("/",(req,res)=>{
-  res.send("server is running succesfully");
-})
 
 
 app.listen(7000,()=>{
